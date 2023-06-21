@@ -29,7 +29,7 @@ Area = rep(unique(IMD_Auckland$Areas),each=5)
 Decile = rep(1:5,4)
 off_zones_density = cbind(Area,Decile,pop_area,Number_of_outlets)
 off_zones_density$Density_per_10000_people = off_zones_density$Number_of_outlets/off_zones_density$Population
-off_zones_density$Density_per_km² = off_zones_density$Number_of_outlets/off_zones_density$Shape_area
+off_zones_density$`Density_per_km²` = off_zones_density$Number_of_outlets/off_zones_density$Shape_area
 
 # save(off_zones_density, file = "RData/dep_zones_off_license.RData")
 

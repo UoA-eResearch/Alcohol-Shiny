@@ -17,8 +17,8 @@ Number_of_outlets = sapply(1:5,function(x)sum(on_license_imd$Decile==x))
 Population = sapply(1:5,function(x)sum(IMD_Auckland$Census_Pop[IMD_Auckland$Decile==x]))/10000
 Shape_area = sapply(1:5,function(x)sum(IMD_Auckland$Shape_Area[IMD_Auckland$Decile==x]))/1e6
 Density_per_10000_people = Number_of_outlets/Population
-Density_per_km² = Number_of_outlets/Shape_area
-overall = data.frame(Decile=1:5,Number_of_outlets,Population,Density_per_10000_people,Shape_area,Density_per_km²)
+`Density_per_km²` = Number_of_outlets/Shape_area
+overall = data.frame(Decile=1:5,Number_of_outlets,Population,Density_per_10000_people,Shape_area,`Density_per_km²`)
 # save(overall, file = "RData/dep_overall_on_license.RData")
 
 overall_on_density = merge(IMD_Auckland,overall)

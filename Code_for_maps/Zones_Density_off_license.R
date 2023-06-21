@@ -42,7 +42,7 @@ load("map/off_license_pop_density.RData")
 tmap_leaflet(map,in.shiny = TRUE)%>%hideGroup("Off_license")
 
 ## Area
-breaks = sort(Density$Density_per_km²)*10
+breaks = sort(Density$`Density_per_km²`)*10
 breaks[1]=floor(breaks[1])
 breaks[4]=ceiling(breaks[4])
 breaks[2:3]=round(breaks[2:3])

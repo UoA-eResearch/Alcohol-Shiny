@@ -17,8 +17,8 @@ Number_of_outlets = sapply(1:5,function(x)sum(off_license_imd$Decile==x))
 Population = sapply(1:5,function(x)sum(IMD_Auckland$Census_Pop[IMD_Auckland$Decile==x]))/10000
 Shape_area = sapply(1:5,function(x)sum(IMD_Auckland$Shape_Area[IMD_Auckland$Decile==x]))/1e6
 Density_per_10000_people = Number_of_outlets/Population
-Density_per_km² = Number_of_outlets/Shape_area
-overall = data.frame(Decile=1:5,Number_of_outlets,Population,Density_per_10000_people,Shape_area,Density_per_km²)
+`Density_per_km²` = Number_of_outlets/Shape_area
+overall = data.frame(Decile=1:5,Number_of_outlets,Population,Density_per_10000_people,Shape_area,`Density_per_km²`)
 # save(overall, file = "RData/dep_overall_off_license.RData")
 
 overall_off_density = merge(IMD_Auckland,overall)
@@ -48,8 +48,8 @@ map = tm_shape(Deprivation_Density)+
 tmap_leaflet(map,in.shiny = TRUE)%>%hideGroup("Off_license")
 
 
-Deprivation_Density = overall_off_density[order(overall_off_density$Density_per_km²),]
-breaks = unique(Deprivation_Density$Density_per_km²)*10
+Deprivation_Density = overall_off_density[order(overall_off_density$`Density_per_km²`),]
+breaks = unique(Deprivation_Density$`Density_per_km²`)*10
 breaks[1]=floor(breaks[1])
 breaks[5]=ceiling(breaks[5])
 breaks[2:4]=round(breaks[2:4])

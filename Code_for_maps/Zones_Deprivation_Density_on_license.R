@@ -29,7 +29,7 @@ Area = rep(unique(IMD_Auckland$Areas),each=5)
 Decile = rep(1:5,4)
 on_zones_density = cbind(Area,Decile,pop_area,Number_of_outlets)
 on_zones_density$Density_per_10000_people = on_zones_density$Number_of_outlets/on_zones_density$Population
-on_zones_density$Density_per_km² = on_zones_density$Number_of_outlets/on_zones_density$Shape_area
+on_zones_density$`Density_per_km²` = on_zones_density$Number_of_outlets/on_zones_density$Shape_area
 
 # save(on_zones_density, file = "RData/dep_zones_on_license.RData")
 
@@ -103,8 +103,8 @@ tmap_leaflet(map,in.shiny = TRUE)%>%hideGroup("On_license")
 
 # save(object = map, file = "map/waitakere_Deprivation_Density_pop_on.RData")
 
-Deprivation_Density = Deprivation_Density[order(Deprivation_Density$Density_per_km²),]
-breaks = unique(Deprivation_Density$Density_per_km²)*10
+Deprivation_Density = Deprivation_Density[order(Deprivation_Density$`Density_per_km²`),]
+breaks = unique(Deprivation_Density$`Density_per_km²`)*10
 breaks[1]=floor(breaks[1])
 breaks[5]=ceiling(breaks[5])
 breaks[2:4]=round(breaks[2:4])
