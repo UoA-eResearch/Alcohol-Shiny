@@ -80,7 +80,7 @@ server = function(input, output){
       tm_shape(Off_license) + tm_dots(col ="purple") + tm_view(set.view=c(174.76,-36.8,10)) +
       tm_add_legend(type="fill",labels = c("On_license","Off_license"),col = c("ivory","purple"),title = "Alcohol Outlets")
     
-    tmap_leaflet(map,in.shiny=T)%>%hideGroup(c("On_license","Off_license"))
+    tmap_leaflet(map,in.shiny=T)#%>%hideGroup(c("On_license","Off_license"))
   })
   
   ## Density - On license
